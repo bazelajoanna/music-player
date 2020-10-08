@@ -1,0 +1,53 @@
+@import "components/Sidebar";
+@import "components/Modal";
+@import "components/Notification";
+
+body {
+  margin: 0;
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+.MusicPlayer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: white;
+  position: relative;
+}
+
+
+.Topbar {
+  background: #9A6558;
+  width: calc(100vw - 200px);
+  position: absolute;
+  top: 0;
+  height: 50px;
+  left: 200px;
+  z-index: 2;
+
+}
+
+.Content {
+  width: calc(100vw - 200px);
+  position: absolute;
+  left: 200px;
+  top: 50px;
+  background: #AD7A5C;
+  height: 100vh;
+}
+
+.Playbar {
+  position: absolute;
+  bottom: -75px;
+  width: 100vw;
+  height: 75px;
+  background: #2B061E;
+  z-index: 10;
+}
