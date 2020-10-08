@@ -1,0 +1,24 @@
+.notification {
+  position: absolute;
+  top: 0px;
+  left: calc(50% - 170px);
+  z-index: 3;
+  background: brown;
+  width: 350px;
+  color: black;
+  text-align: center;
+  padding: 30px;
+  border-radius: 5px;
+  animation-name: notification-animation;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  font-size: 18px;
+}
+
+@keyframes notification-animation {
+  0% {background: #AD7A5C;
+  transform: translateY(0px)}
+  100% {background-color: brown;
+    transform: translateY(75px);
+    color: white}
+}
