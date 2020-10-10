@@ -1,50 +1,55 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useContext} from 'react';
 import logo from '../../img/Spotify_Logo_RGB_Black.png';
+import {StoreContext} from "./index";
 import Modal  from "./Modal";
 import Notification from "./Notification";
 
 
+
 const Sidebar = () => {
     const [sidebar, setSidebar] = useState({
-        currentPlaylist: 'home',
         modal: false,
-        playlists: {
-            home: new Set(),
-            favourites: new Set()
-        },
         notification: ""
     });
-    const playlistRef = useRef(null);
-    const playlists = Object.keys((sidebar.playlists));
 
+    const {state, dispatch} = useContext(StoreContext)
+
+
+    const playlists = Object.keys((state.playlists));
+
+    const [newList, setNewList] = useState("");
 
     const handleAddPlaylist = e => {
         e.preventDefault();
-        const newList = playlistRef.current.value;
+
+        dispatch({type: "ADD_PLAYLIST", playlist: newList})
 
         setSidebar({
             ...sidebar,
             modal: false,
-            playlists: { ...sidebar.playlists, [newList]: new Set()},
             notification: "New playlist has been created!",
         })
+
+        setNewList("");
     };
+
+    const handleModal = () => setSidebar({...sidebar, modal: !sidebar.modal})
     return (
         <div className="Sidebar">
             <img src={logo}/>
             <ul>
                 {playlists.map(list =>
                 <li key={list}
-                    className={list === sidebar.currentPlaylist ? "active" : ""}
+                    className={list === state.currentPlaylist ? "active" : ""}
                     onClick={() => {
-                        setSidebar({...sidebar, currentPlaylist: list})
+                        dispatch({type: "SET_PLAYLIST", playlist: list})
                     }}
                 >
                     {list}
                 </li>)}
 
                 <li className="new-playlist"
-                onClick={() => setSidebar({...sidebar, modal: true})}>
+                onClick={handleModal}>
                     <i className="fa fa-plus-circle"/>
                     <span>New Playlist</span>
                 </li>
@@ -52,7 +57,7 @@ const Sidebar = () => {
                     <form onSubmit={handleAddPlaylist}>
                         <div className="title">New Playlist</div>
                         <div className="content-wrap">
-                            <input type="text" placeholder="My Playlist" required ref={playlistRef} />
+                            <input type="text" placeholder="My Playlist" required value={newList} onChange={(e) => setNewList(e.target.value)} />
                             <br/>
                             <button type="sumbit">Create</button>
 
