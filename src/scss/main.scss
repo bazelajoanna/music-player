@@ -1,6 +1,7 @@
 @import "components/Sidebar";
 @import "components/Modal";
 @import "components/Notification";
+@import "components/Content";
 
 body {
   margin: 0;
@@ -40,7 +41,10 @@ code {
   left: 200px;
   top: 50px;
   background: #AD7A5C;
-  height: 100vh;
+  height: calc(100% - 50px);
+  padding-left: 10px;
+  text-transform: capitalize;
+  overflow-y: scroll;
 }
 
 .Playbar {
