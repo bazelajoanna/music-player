@@ -1,12 +1,37 @@
 .Sidebar {
-  background: #875053;
+  background: #2F4550;
   width: 200px;
   height: 100vh;
+
+  @media screen and (max-width: 768px) {
+    width: 50px;
+  }
 }
 
-.Sidebar img {
-  height: 50px;
-  padding: 20px 0 0 10px;
+.logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+  color: #F4F4F9;
+  padding-left: 10px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.hamburger {
+  padding: 10px 0 0 10px;
+  font-size: 30px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.sidebar-list {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .Sidebar ul li {
@@ -15,12 +40,16 @@
   font-weight: 600;
   text-transform: capitalize;
   cursor: pointer;
-}
 
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
 .Sidebar ul li.active {
   font-weight: 700;
   font-size: large;
   letter-spacing: 1.5px;
+  color: #F4F4F9;
 }
 
 li.new-playlist {
