@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {StoreContext} from "./index";
 import PlaylistEditorMenu from "./PlaylistEditorMenu";
+import "../../scss/components/Content.scss";
 
 const Content = () => {
     const {state, dispatch} = useContext(StoreContext);
@@ -10,7 +11,7 @@ const Content = () => {
     const allPlaylists = Object.keys(state.playlists);
 
     return (
-        <div className="Content">
+        <div className="content">
             <div className="playlist-title">{currentPlaylist}</div>
             {songIds.length <= 0 ? (
                 <p>Add your songs!</p>
@@ -29,7 +30,7 @@ const Content = () => {
                         const isFavourite = state.playlists.favourites.has(id);
 
                         return (
-                            <tr key={id}>
+                            <tr className="playlist-row" key={id}>
                                 <td>
                                     {
                                         isFavourite ? (<i className="fas fa-heart"
@@ -41,9 +42,9 @@ const Content = () => {
                                 <td>
                                     <PlaylistEditorMenu playlists={allPlaylists} songId={id}/>
                                 </td>
-                                <td>{title}</td>
-                                <td>{artist}</td>
-                                <td>{length}</td>
+                                <td className="table-data--title">{title}</td>
+                                <td className="table-data--artist">{artist}</td>
+                                <td className="table-data--length">{length}</td>
                             </tr>
                         )
                     })}

@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import "../../scss/components/Notification.scss";
 
 const Notification = ({notification, close}) => {
     useEffect(() => {

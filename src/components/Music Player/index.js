@@ -14,7 +14,6 @@ const initialState = {
     },
 };
 
-
 const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_PLAYLIST":
@@ -41,7 +40,7 @@ const MusicPlayer = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     return (
         <StoreContext.Provider value={{state, dispatch}}>
-            <div className="MusicPlayer">
+            <div className="music-player">
                 <Sidebar/>
                 <Content/>
             </div>

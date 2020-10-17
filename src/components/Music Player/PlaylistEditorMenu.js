@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {StoreContext} from "./index";
+import "../../scss/components/PlaylistEditorMenu.scss";
 
 const PlaylistEditorMenu = ({playlists, songId}) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -9,12 +10,10 @@ const PlaylistEditorMenu = ({playlists, songId}) => {
         setIsOpen(false)
     }
     return (
-        <div className="PlaylistEditorMenu">
+        <div>
             <i className="fas fa-ellipsis-h"
            onClick={() => setIsOpen(true)}
             ></i>
-
-
                 <div className={isOpen ? "playlist-editor-modal" : "playlist-editor-modal playlist-editor-modal--closed"}>
                     <span>Add to playlist:</span>
                     <i className="fa fa-times" onClick={() => setIsOpen(false)}/>

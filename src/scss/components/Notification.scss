@@ -1,17 +1,27 @@
+@import "../config/variables";
+
 .notification {
   position: absolute;
   top: 0;
-  left: calc(50% - 170px);
+  right: 25vw;
   z-index: 3;
-  width: 350px;
+  width: 50vw;
   color: black;
   text-align: center;
-  padding: 30px;
+  padding: 20px;
   border-radius: 5px;
   animation-name: notification-animation;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   font-size: 18px;
+
+  @media screen and (min-width: $breakpoint-l) {
+    width: 350px;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 170px);
+    padding: 30px;
+  }
 }
 
 @keyframes notification-animation {
