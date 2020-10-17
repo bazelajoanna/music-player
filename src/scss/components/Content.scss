@@ -1,6 +1,34 @@
+@import "../config/variables";
+
+.content {
+  width: 100%;
+  background: #586F7C;
+  height: 100%;
+  padding-left: 10px;
+  text-transform: capitalize;
+  overflow-y: scroll;
+  font-size: 20px;
+
+  @media screen and (min-width: $breakpoint-l) {
+    width: calc(100% - 210px);
+    position: absolute;
+    left: 200px;
+    background: #586F7C;
+    height: 100%;
+    padding-left: 10px;
+    text-transform: capitalize;
+    overflow-y: scroll;
+  }
+}
 
 .playlist-title {
   font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0px;
+  padding-top: 5px;
+  background-color: #586F7C;
 }
 
 table {
@@ -9,17 +37,35 @@ table {
   margin-top: 20px;
 }
 
+.playlist-table-header {
+  display: none;
+
+  @media screen and (min-width: $breakpoint-l){
+    display: table-row;
+    text-align: left;
+  }
+}
+
+.playlist-table-label {
+  font-weight: 900;
+  font-size: larger;
+  position: sticky;
+  color: #1E2C33;
+  top: 25px;
+  background-color: #586F7C;
+
+}
+
 table tbody tr {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #29514F;
 }
 
 table td {
-  padding-bottom: 10px;
-}
+  padding: 5px 0 5px 0;
 
-table > th {
-  display: flex;
-  width: 100%;
+  @media screen and (min-width: $breakpoint-l) {
+    padding: 10px 0 10px 0;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -27,9 +73,52 @@ table > th {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #875053;
+  background-color: #1E2C33;
 }
 
 i {
   cursor: pointer;
+}
+
+.fa-heart {
+  display: none;
+
+  @media screen and (min-width: $breakpoint-l) {
+    display: block;
+  }
+}
+
+.table-data--length {
+  display: none;
+
+  @media screen and (min-width: $breakpoint-l) {
+    display: block;
+  }
+}
+
+.playlist-row {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: $breakpoint-l) {
+    display: table-row;
+  }
+}
+
+.table-data--artist {
+  font-size: 16px;
+
+  @media screen and (min-width: $breakpoint-l) {
+    font-size: 20px;
+  }
+}
+
+.table-data--title {
+  font-weight: 800;
+  font-size: 22px;
+
+  @media screen and (min-width: $breakpoint-l) {
+    font-weight: 500;
+    font-size: 20px;
+  }
 }

@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
+import "../../scss/components/Notification.scss";
 
 const Notification = ({notification, close}) => {
     useEffect(() => {
-        if(!notification) return
+        if(!notification) return;
 
         const closeNotification = () => {
             setTimeout(() => {
@@ -15,9 +16,9 @@ const Notification = ({notification, close}) => {
         return () => {
             clearTimeout(closeNotification)
         }
-    }, [notification])
+    }, [notification]);
 
-    if (!notification) return null
+    if (!notification) return null;
 
     return (
         <div className="notification">
